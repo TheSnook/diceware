@@ -6,7 +6,7 @@ WORKDIR /tmp/diceware
 
 RUN npm install && npm run build
 
-FROM nginx:1.25-bullseye
+FROM nginx:stable-alpine-slim
 
 COPY --from=builder /tmp/diceware/assets /usr/share/nginx/html/assets/
 COPY --from=builder /tmp/diceware/dist /usr/share/nginx/html/dist/
